@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>mgmt - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.24.0";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/github.com/Kerrigan-Automation/overmind/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/github.com/Kerrigan-Automation/overmind/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package mgmt
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/Kerrigan-Automation/overmind/cfg/mgmt"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>Package mgmt implements a repository for configuration.
+
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#NewManager">func NewManager(logger *zap.Logger, mcfg ManagerConfig) (*manager, error)</a></dd>
+			
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Config.Contents">func (c *Config) Contents() []byte</a></dd>
+				
+			
+				
+				<dd><a href="#ConsumedConfig">type ConsumedConfig</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConsumedConfig.Config">func (cc *ConsumedConfig) Config() (Config, error)</a></dd>
+				
+			
+				
+				<dd><a href="#Consumer">type Consumer</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Manager">type Manager</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ManagerConfig">type ManagerConfig</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/config.go.html">config.go</a>
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/consumer.go.html">consumer.go</a>
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/manager.go.html">manager.go</a>
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/manager_config.go.html">manager_config.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span id="ErrNoConfigAssigned">ErrNoConfigAssigned</span>  = <a href="https://pkg.go.dev/errors/">errors</a>.<a href="https://pkg.go.dev/errors/#New">New</a>(&#34;no config assigned&#34;)
+    <span id="ErrNoManagerAssigned">ErrNoManagerAssigned</span> = <a href="https://pkg.go.dev/errors/">errors</a>.<a href="https://pkg.go.dev/errors/#New">New</a>(&#34;no manager assigned&#34;)
+)</pre>
+			
+				
+				<pre>var (
+    <span id="ErrConfigNotFound">ErrConfigNotFound</span>       = <a href="https://pkg.go.dev/errors/">errors</a>.<a href="https://pkg.go.dev/errors/#New">New</a>(&#34;no config found with that id&#34;)
+    <span id="ErrConsumerNotFound">ErrConsumerNotFound</span>     = <a href="https://pkg.go.dev/errors/">errors</a>.<a href="https://pkg.go.dev/errors/#New">New</a>(&#34;no consumer found with that id&#34;)
+    <span id="ErrConsumerTitleInUse">ErrConsumerTitleInUse</span>   = <a href="https://pkg.go.dev/errors/">errors</a>.<a href="https://pkg.go.dev/errors/#New">New</a>(&#34;a consumer with that title already exists&#34;)
+    <span id="ErrMissingRequiredField">ErrMissingRequiredField</span> = <a href="https://pkg.go.dev/errors/">errors</a>.<a href="https://pkg.go.dev/errors/#New">New</a>(&#34;one or more required fields is missing a value&#34;)
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="NewManager">func <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/manager.go.html#L76">NewManager</a>
+				<a class="permalink" href="#NewManager">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewManager(logger *<a href="https://pkg.go.dev/go.uber.org/zap/">zap</a>.<a href="https://pkg.go.dev/go.uber.org/zap/#Logger">Logger</a>, mcfg <a href="#ManagerConfig">ManagerConfig</a>) (*manager, <a href="https://pkg.go.dev/builtin/#error">error</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="Config">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/config.go.html#L9">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Config struct {
+<span id="Config.ID"></span>    ID           <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="Config.Type"></span>    Type         <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="Config.Title"></span>    Title        <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="Config.Notes"></span>    Notes        <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="Config.CreationTime"></span>    CreationTime <a href="https://pkg.go.dev/time/">time</a>.<a href="https://pkg.go.dev/time/#Time">Time</a>
+<span id="Config.Creator"></span>    Creator      <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="Config.Archived"></span>    Archived     <a href="https://pkg.go.dev/builtin/#bool">bool</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="Config.Contents">func (*Config) <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/config.go.html#L20">Contents</a>
+					<a class="permalink" href="#Config.Contents">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Config">Config</a>) Contents() []<a href="https://pkg.go.dev/builtin/#byte">byte</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ConsumedConfig">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/consumer.go.html#L10">ConsumedConfig</a>
+				<a class="permalink" href="#ConsumedConfig">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ConsumedConfig struct {
+<span id="ConsumedConfig.Type"></span>    Type        <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="ConsumedConfig.Description"></span>    Description <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="ConsumedConfig.ConfigID"></span>    ConfigID    <a href="https://pkg.go.dev/builtin/#string">string</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+				
+				<h3 id="ConsumedConfig.Config">func (*ConsumedConfig) <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/consumer.go.html#L17">Config</a>
+					<a class="permalink" href="#ConsumedConfig.Config">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (cc *<a href="#ConsumedConfig">ConsumedConfig</a>) Config() (<a href="#Config">Config</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)</pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="Consumer">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/consumer.go.html#L29">Consumer</a>
+				<a class="permalink" href="#Consumer">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Consumer struct {
+<span id="Consumer.ID"></span>    ID      <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="Consumer.Title"></span>    Title   <a href="https://pkg.go.dev/builtin/#string">string</a>
+<span id="Consumer.Configs"></span>    Configs []<a href="#ConsumedConfig">ConsumedConfig</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Manager">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/manager.go.html#L36">Manager</a>
+				<a class="permalink" href="#Manager">&#xb6;</a>
+				
+				
+			</h2>
+			<p>Manager describes an object that manages configuration data.
+
+			<pre>type Manager interface {
+    <span class="comment">// Retrieve the config with the given ID</span>
+    Config(id <a href="https://pkg.go.dev/builtin/#string">string</a>) (<a href="#Config">Config</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+
+    <span class="comment">// Retrieve all configs</span>
+    Configs() []<a href="#Config">Config</a>
+
+    <span class="comment">// Create a new config</span>
+    SaveConfig(title, creator, cfgType, notes, contents <a href="https://pkg.go.dev/builtin/#string">string</a>, replace <a href="https://pkg.go.dev/builtin/#bool">bool</a>) (<a href="#Config">Config</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+
+    <span class="comment">// Change the archive field of an existing config</span>
+    ArchiveConfig(id <a href="https://pkg.go.dev/builtin/#string">string</a>, archive <a href="https://pkg.go.dev/builtin/#bool">bool</a>) (<a href="#Config">Config</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+
+    <span class="comment">// Retrieve all consumers</span>
+    Consumers() []<a href="#Consumer">Consumer</a>
+
+    <span class="comment">// Create a new consumer</span>
+    NewConsumer(title <a href="https://pkg.go.dev/builtin/#string">string</a>, consumed []<a href="#ConsumedConfig">ConsumedConfig</a>) (<a href="#Consumer">Consumer</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+
+    <span class="comment">// Change the title field of an existing consumer</span>
+    UpdateConsumerTitle(id <a href="https://pkg.go.dev/builtin/#string">string</a>, newTitle <a href="https://pkg.go.dev/builtin/#string">string</a>) (<a href="#Consumer">Consumer</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+
+    <span class="comment">// Change the configs field of an existing consumer</span>
+    UpdateConsumerConfigs(id <a href="https://pkg.go.dev/builtin/#string">string</a>, consumed []<a href="#ConsumedConfig">ConsumedConfig</a>) (<a href="#Consumer">Consumer</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+
+    <span class="comment">// Delete an existing consumer.</span>
+    <span class="comment">// Returns the deleted value.</span>
+    DeleteConsumer(id <a href="https://pkg.go.dev/builtin/#string">string</a>) (<a href="#Consumer">Consumer</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ManagerConfig">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/manager_config.go.html#L3">ManagerConfig</a>
+				<a class="permalink" href="#ManagerConfig">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ManagerConfig struct {
+    <span class="comment">// What TCP port the module server should listen on</span>
+<span id="ManagerConfig.Port"></span>    Port <a href="https://pkg.go.dev/builtin/#uint16">uint16</a>
+
+    <span class="comment">// If non-empty, use the provided directory to store config files</span>
+<span id="ManagerConfig.ConfigDir"></span>    ConfigDir <a href="https://pkg.go.dev/builtin/#string">string</a>
+
+    <span class="comment">// If non-empty, sync configs with the provided git remote</span>
+<span id="ManagerConfig.GitRemoteURL"></span>    GitRemoteURL <a href="https://pkg.go.dev/builtin/#string">string</a>
+
+    <span class="comment">// If authentication is required on the git remote, the git user name</span>
+<span id="ManagerConfig.GitRemoteUserName"></span>    GitRemoteUserName <a href="https://pkg.go.dev/builtin/#string">string</a>
+
+    <span class="comment">// If authentication is required on the git remote, the git password / personal access token</span>
+<span id="ManagerConfig.GitRemotePassword"></span>    GitRemotePassword <a href="https://pkg.go.dev/builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="graph/">graph</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 20px;">
+						<a href="graph/model/">model</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.24.0.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

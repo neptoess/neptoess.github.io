@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>model - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.24.0";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/github.com/Kerrigan-Automation/overmind/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/github.com/Kerrigan-Automation/overmind/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package model
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ConfigConsumer">type ConfigConsumer</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ConsumedConfig">type ConsumedConfig</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ConsumedConfigInput">type ConsumedConfigInput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Mutation">type Mutation</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Query">type Query</a></dd>
+				
+				
+			
+				
+				<dd><a href="#User">type User</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/models_gen.go.html">models_gen.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+		
+		
+			
+			
+			<h2 id="Config">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/models_gen.go.html#L11">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A config is a structure containing parameters for something.
+That thing may be an application, piece of manufacturing equipment, process, etc.
+
+			<pre>type Config struct {
+<span id="Config.ID"></span>    ID   <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;id&#34;`
+<span id="Config.Type"></span>    Type <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;type&#34;`
+    <span class="comment">// A human readable name for this config</span>
+<span id="Config.Title"></span>    Title <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;title&#34;`
+    <span class="comment">// Any additional notes related to this config</span>
+<span id="Config.Notes"></span>    Notes <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;notes&#34;`
+    <span class="comment">// When the config was created</span>
+<span id="Config.CreationTime"></span>    CreationTime <a href="https://pkg.go.dev/time/">time</a>.<a href="https://pkg.go.dev/time/#Time">Time</a> `json:&#34;creationTime&#34;`
+    <span class="comment">// The user that created this config</span>
+<span id="Config.Creator"></span>    Creator *<a href="#User">User</a> `json:&#34;creator&#34;`
+    <span class="comment">// A value indicating whether the config has been archived or not</span>
+<span id="Config.Archived"></span>    Archived <a href="https://pkg.go.dev/builtin/#bool">bool</a>   `json:&#34;archived&#34;`
+<span id="Config.Contents"></span>    Contents <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;contents&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConfigConsumer">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/models_gen.go.html#L28">ConfigConsumer</a>
+				<a class="permalink" href="#ConfigConsumer">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A config consumer is an application, machine, process, service, etc. that uses one or more configs.
+
+			<pre>type ConfigConsumer struct {
+<span id="ConfigConsumer.ID"></span>    ID <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;id&#34;`
+    <span class="comment">// Names the consumer</span>
+<span id="ConfigConsumer.Title"></span>    Title <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;title&#34;`
+    <span class="comment">// The config(s) that this consumer uses</span>
+<span id="ConfigConsumer.Configs"></span>    Configs []*<a href="#ConsumedConfig">ConsumedConfig</a> `json:&#34;configs&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConsumedConfig">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/models_gen.go.html#L37">ConsumedConfig</a>
+				<a class="permalink" href="#ConsumedConfig">&#xb6;</a>
+				
+				
+			</h2>
+			<p>A reference to a config that a consumer uses
+
+			<pre>type ConsumedConfig struct {
+    <span class="comment">// The type of config that the consumer needs</span>
+<span id="ConsumedConfig.Type"></span>    Type <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;type&#34;`
+    <span class="comment">// A description of what the consumer uses this config for</span>
+<span id="ConsumedConfig.Description"></span>    Description <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;description&#34;`
+    <span class="comment">// The config for the consumer to use.</span>
+    <span class="comment">// This will be null if no config is assigned.</span>
+<span id="ConsumedConfig.Config"></span>    Config *<a href="#Config">Config</a> `json:&#34;config,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConsumedConfigInput">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/models_gen.go.html#L48">ConsumedConfigInput</a>
+				<a class="permalink" href="#ConsumedConfigInput">&#xb6;</a>
+				
+				
+			</h2>
+			<p>The input version of ConsumedConfig
+
+			<pre>type ConsumedConfigInput struct {
+    <span class="comment">// The type of config that the consumer needs</span>
+<span id="ConsumedConfigInput.Type"></span>    Type <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;type&#34;`
+    <span class="comment">// A description of what the consumer uses this config for</span>
+<span id="ConsumedConfigInput.Description"></span>    Description <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;description&#34;`
+    <span class="comment">// The ID of the config for the consumer to use.</span>
+    <span class="comment">// This will be null if no config is assigned.</span>
+<span id="ConsumedConfigInput.ConfigID"></span>    ConfigID *<a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;configID,omitempty&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Mutation">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/models_gen.go.html#L58">Mutation</a>
+				<a class="permalink" href="#Mutation">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Mutation struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Query">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/models_gen.go.html#L61">Query</a>
+				<a class="permalink" href="#Query">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Query struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="User">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/models_gen.go.html#L72">User</a>
+				<a class="permalink" href="#User">&#xb6;</a>
+				
+				
+			</h2>
+			<p>TODO:
+Once we have federation enabled and auth implemented
+Change to type User @key(fields: &quot;id&quot;, resolvable: false)
+Add to the top of the schema to opt into v2 federation
+extend schema
+<pre>@link(url: &quot;https://specs.apollo.dev/federation/v2.0&quot;,
+      import: [&quot;@key&quot;, &quot;@shareable&quot;])
+</pre>
+
+			<pre>type User struct {
+<span id="User.ID"></span>    ID <a href="https://pkg.go.dev/builtin/#string">string</a> `json:&#34;id&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.24.0.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>graph - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.24.0";</script>
+<script src="/lib/godoc/godocs.js" defer></script>
+
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/pkg/github.com/Kerrigan-Automation/overmind/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/pkg/github.com/Kerrigan-Automation/overmind/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package graph
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#NewExecutableSchema">func NewExecutableSchema(cfg Config) graphql.ExecutableSchema</a></dd>
+			
+			
+				
+				<dd><a href="#ComplexityRoot">type ComplexityRoot</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Config">type Config</a></dd>
+				
+				
+			
+				
+				<dd><a href="#DirectiveRoot">type DirectiveRoot</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MutationResolver">type MutationResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#QueryResolver">type QueryResolver</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Resolver">type Resolver</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewResolver">func NewResolver(logger *zap.Logger, cfgMgr mgmt.Manager) (*Resolver, error)</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Resolver.Mutation">func (r *Resolver) Mutation() MutationResolver</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Resolver.Query">func (r *Resolver) Query() QueryResolver</a></dd>
+				
+			
+				
+				<dd><a href="#ResolverRoot">type ResolverRoot</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/federation.go.html">federation.go</a>
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/generated.go.html">generated.go</a>
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/resolver.go.html">resolver.go</a>
+			
+				<a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/schema.resolvers.go.html">schema.resolvers.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				
+				<pre>var (
+    <span id="ErrUnknownType">ErrUnknownType</span>  = <a href="https://pkg.go.dev/errors/">errors</a>.<a href="https://pkg.go.dev/errors/#New">New</a>(&#34;unknown type&#34;)
+    <span id="ErrTypeNotFound">ErrTypeNotFound</span> = <a href="https://pkg.go.dev/errors/">errors</a>.<a href="https://pkg.go.dev/errors/#New">New</a>(&#34;type not found&#34;)
+)</pre>
+			
+		
+		
+			
+			
+			<h2 id="NewExecutableSchema">func <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/generated.go.html#L28">NewExecutableSchema</a>
+				<a class="permalink" href="#NewExecutableSchema">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func NewExecutableSchema(cfg <a href="#Config">Config</a>) <a href="https://pkg.go.dev/github.com/99designs/gqlgen/graphql/">graphql</a>.<a href="https://pkg.go.dev/github.com/99designs/gqlgen/graphql/#ExecutableSchema">ExecutableSchema</a></pre>
+			<p>NewExecutableSchema creates an ExecutableSchema from the ResolverRoot interface.
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="ComplexityRoot">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/generated.go.html#L52">ComplexityRoot</a>
+				<a class="permalink" href="#ComplexityRoot">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ComplexityRoot struct {
+<span id="ComplexityRoot.Config"></span>    Config struct {
+        Archived     func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Contents     func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        CreationTime func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Creator      func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        ID           func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Notes        func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Title        func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Type         func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ConfigConsumer"></span>    ConfigConsumer struct {
+        Configs func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        ID      func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Title   func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.ConsumedConfig"></span>    ConsumedConfig struct {
+        Config      func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Description func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Type        func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Mutation"></span>    Mutation struct {
+        ArchiveConfig        func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>, id <a href="https://pkg.go.dev/builtin/#string">string</a>, archive <a href="https://pkg.go.dev/builtin/#bool">bool</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        DeleteConfigConsumer func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>, id <a href="https://pkg.go.dev/builtin/#string">string</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        NewConfigConsumer    func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>, title <a href="https://pkg.go.dev/builtin/#string">string</a>, consumedConfigs []*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#ConsumedConfigInput">ConsumedConfigInput</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        SaveConfig           func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>, title <a href="https://pkg.go.dev/builtin/#string">string</a>, creatorUserID <a href="https://pkg.go.dev/builtin/#string">string</a>, notes *<a href="https://pkg.go.dev/builtin/#string">string</a>, typeArg <a href="https://pkg.go.dev/builtin/#string">string</a>, contents <a href="https://pkg.go.dev/builtin/#string">string</a>, replace *<a href="https://pkg.go.dev/builtin/#bool">bool</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        UpdateConfigConsumer func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>, id <a href="https://pkg.go.dev/builtin/#string">string</a>, title *<a href="https://pkg.go.dev/builtin/#string">string</a>, consumedConfigs []*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#ConsumedConfigInput">ConsumedConfigInput</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+    }
+
+<span id="ComplexityRoot.Query"></span>    Query struct {
+        ConfigConsumers func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        Configs         func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>, typeArg []<a href="https://pkg.go.dev/builtin/#string">string</a>, archived *<a href="https://pkg.go.dev/builtin/#bool">bool</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+        <span class="comment">// contains filtered or unexported fields</span>
+    }
+
+<span id="ComplexityRoot.User"></span>    User struct {
+        ID func(childComplexity <a href="https://pkg.go.dev/builtin/#int">int</a>) <a href="https://pkg.go.dev/builtin/#int">int</a>
+    }
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Config">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/generated.go.html#L37">Config</a>
+				<a class="permalink" href="#Config">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Config struct {
+<span id="Config.Schema"></span>    Schema     *<a href="https://pkg.go.dev/github.com/vektah/gqlparser/v2/ast/">ast</a>.<a href="https://pkg.go.dev/github.com/vektah/gqlparser/v2/ast/#Schema">Schema</a>
+<span id="Config.Resolvers"></span>    Resolvers  <a href="#ResolverRoot">ResolverRoot</a>
+<span id="Config.Directives"></span>    Directives <a href="#DirectiveRoot">DirectiveRoot</a>
+<span id="Config.Complexity"></span>    Complexity <a href="#ComplexityRoot">ComplexityRoot</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="DirectiveRoot">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/generated.go.html#L49">DirectiveRoot</a>
+				<a class="permalink" href="#DirectiveRoot">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type DirectiveRoot struct {
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MutationResolver">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/generated.go.html#L99">MutationResolver</a>
+				<a class="permalink" href="#MutationResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MutationResolver interface {
+    ArchiveConfig(ctx <a href="https://pkg.go.dev/context/">context</a>.<a href="https://pkg.go.dev/context/#Context">Context</a>, id <a href="https://pkg.go.dev/builtin/#string">string</a>, archive <a href="https://pkg.go.dev/builtin/#bool">bool</a>) (*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#Config">Config</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+    SaveConfig(ctx <a href="https://pkg.go.dev/context/">context</a>.<a href="https://pkg.go.dev/context/#Context">Context</a>, title <a href="https://pkg.go.dev/builtin/#string">string</a>, creatorUserID <a href="https://pkg.go.dev/builtin/#string">string</a>, notes *<a href="https://pkg.go.dev/builtin/#string">string</a>, typeArg <a href="https://pkg.go.dev/builtin/#string">string</a>, contents <a href="https://pkg.go.dev/builtin/#string">string</a>, replace *<a href="https://pkg.go.dev/builtin/#bool">bool</a>) (*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#Config">Config</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+    NewConfigConsumer(ctx <a href="https://pkg.go.dev/context/">context</a>.<a href="https://pkg.go.dev/context/#Context">Context</a>, title <a href="https://pkg.go.dev/builtin/#string">string</a>, consumedConfigs []*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#ConsumedConfigInput">ConsumedConfigInput</a>) (*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#ConfigConsumer">ConfigConsumer</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+    UpdateConfigConsumer(ctx <a href="https://pkg.go.dev/context/">context</a>.<a href="https://pkg.go.dev/context/#Context">Context</a>, id <a href="https://pkg.go.dev/builtin/#string">string</a>, title *<a href="https://pkg.go.dev/builtin/#string">string</a>, consumedConfigs []*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#ConsumedConfigInput">ConsumedConfigInput</a>) (*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#ConfigConsumer">ConfigConsumer</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+    DeleteConfigConsumer(ctx <a href="https://pkg.go.dev/context/">context</a>.<a href="https://pkg.go.dev/context/#Context">Context</a>, id <a href="https://pkg.go.dev/builtin/#string">string</a>) (*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#ConfigConsumer">ConfigConsumer</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="QueryResolver">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/generated.go.html#L106">QueryResolver</a>
+				<a class="permalink" href="#QueryResolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type QueryResolver interface {
+    Configs(ctx <a href="https://pkg.go.dev/context/">context</a>.<a href="https://pkg.go.dev/context/#Context">Context</a>, typeArg []<a href="https://pkg.go.dev/builtin/#string">string</a>, archived *<a href="https://pkg.go.dev/builtin/#bool">bool</a>) ([]*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#Config">Config</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+    ConfigConsumers(ctx <a href="https://pkg.go.dev/context/">context</a>.<a href="https://pkg.go.dev/context/#Context">Context</a>) ([]*<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/">model</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/model/#ConfigConsumer">ConfigConsumer</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Resolver">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/resolver.go.html#L18">Resolver</a>
+				<a class="permalink" href="#Resolver">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Resolver struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewResolver">func <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/resolver.go.html#L23">NewResolver</a>
+					<a class="permalink" href="#NewResolver">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewResolver(logger *<a href="https://pkg.go.dev/go.uber.org/zap/">zap</a>.<a href="https://pkg.go.dev/go.uber.org/zap/#Logger">Logger</a>, cfgMgr <a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/">mgmt</a>.<a href="/pkg/github.com/Kerrigan-Automation/overmind/cfg/mgmt/#Manager">Manager</a>) (*<a href="#Resolver">Resolver</a>, <a href="https://pkg.go.dev/builtin/#error">error</a>)</pre>
+				
+				
+				
+			
+
+			
+				
+				<h3 id="Resolver.Mutation">func (*Resolver) <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/schema.resolvers.go.html#L133">Mutation</a>
+					<a class="permalink" href="#Resolver.Mutation">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Resolver">Resolver</a>) Mutation() <a href="#MutationResolver">MutationResolver</a></pre>
+				<p>Mutation returns MutationResolver implementation.
+
+				
+				
+				
+			
+				
+				<h3 id="Resolver.Query">func (*Resolver) <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/schema.resolvers.go.html#L136">Query</a>
+					<a class="permalink" href="#Resolver.Query">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (r *<a href="#Resolver">Resolver</a>) Query() <a href="#QueryResolver">QueryResolver</a></pre>
+				<p>Query returns QueryResolver implementation.
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ResolverRoot">type <a href="/src/github.com/Kerrigan-Automation/overmind/cfg/mgmt/graph/generated.go.html#L44">ResolverRoot</a>
+				<a class="permalink" href="#ResolverRoot">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ResolverRoot interface {
+    Mutation() <a href="#MutationResolver">MutationResolver</a>
+    Query() <a href="#QueryResolver">QueryResolver</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="model/">model</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</table>
+	</div>
+
+
+
+<div id="footer">
+Build version go1.24.0.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>
